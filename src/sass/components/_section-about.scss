@@ -1,0 +1,239 @@
+.section-about {
+  background-color: $section-bg-color;
+
+  @media screen and (max-width: 767px) {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom 50px center;
+    background-image: url(../images/milk-mobile.png);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(../images/milk-mobile@2x.png);
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom -50px center;
+    background-image: url(../images/milk-des.png);
+
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: url(../images/milk-des@2x.png);
+    }
+  }
+}
+
+.section-about__label {
+  @include secondary-font(18px, 400, 21px);
+  text-align: center;
+  color: $accent-secondary-color;
+  margin-bottom: 15px;
+  padding-top: 125px;
+
+  @media screen and (min-width: 768px) {
+    @include secondary-font(26px, 400, 30px);
+    text-align: center;
+    padding-top: 130px;
+    margin-bottom: 16px;
+  }
+  @media screen and (min-width: 1200px) {
+    @include secondary-font(30px, 400, 34px, 0.04em);
+  }
+}
+
+.section-about__title {
+  @include secondary-font(34px, 400, 39px, 0.04em);
+  text-align: center;
+  color: $accent-main-color;
+  margin-bottom: 26px;
+
+  @media screen and (min-width: 768px) {
+    @include secondary-font(48px, 400, 55px);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    @include secondary-font(58px, 400, 66px, 0.06em);
+    margin-bottom: 51px;
+  }
+}
+
+.section-about--story {
+  margin-top: 46px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 17px;
+    margin-top: 50px;
+    padding: 0;
+    //margin-bottom: 62px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-left: 74px;
+  }
+}
+
+.section-about__text-black {
+  @include main-font(12px, 500, 19px);
+  color: $third-text-color;
+  margin-bottom: 34px;
+
+  @media screen and (min-width: 768px) {
+    @include main-font(12px, 500, 19px);
+    margin-bottom: 36px;
+  }
+  @media screen and (min-width: 1200px) {
+    @include main-font(16px, 500, 28px, 0.04em);
+    margin-bottom: 35px;
+  }
+}
+
+.section-about__text-gray {
+  @include main-font(12px, 500, 19px);
+  color: $third-text-color;
+  margin-bottom: 15px;
+
+  @media screen and (min-width: 768px) {
+    @include main-font(14px, 500, 25px);
+    margin-bottom: 25px;
+  }
+  @media screen and (min-width: 1200px) {
+    @include main-font(14px, 500, 27px, 0.04em);
+    margin-bottom: 35px;
+  }
+}
+
+.section-about__img {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  animation: rotateY 3000ms infinite alternate backwards ease-in-out 1000ms;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    padding-left: 0px;
+  }
+}
+
+@keyframes rotateY {
+  0% {
+    transform: perspective(1000px) rotateY(15deg);
+  }
+
+  100% {
+    transform: perspective(1000px) rotateY(-15deg);
+  }
+}
+
+.section-about__button {
+  @include base-button;
+  background-color: $main-text-color;
+  color: $accent-main-color;
+  @include main-font(14px, 700, 16px, 0);
+  margin-left: 0;
+  animation: animate125 3000ms infinite 1000ms;
+
+  @media screen and (min-width: 768px) {
+    @include base-button;
+    background-color: $main-text-color;
+    color: $accent-main-color;
+    margin-left: 0;
+  }
+  @media screen and (min-width: 1200px) {
+    &:hover {
+      background-color: $hover-inverse-button-color;
+    }
+  }
+}
+.section-about--production {
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
+}
+
+// Modal About
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(15px);
+  z-index: 100;
+  opacity: 0;
+
+  &.about-is-hidden {
+    opacity: 0;
+  }
+}
+.about-is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.section-about__modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  background-color: $main-text-color;
+  opacity: 1;
+  text-align: left;
+  padding-top: 0;
+  border-radius: 20px;
+  box-shadow: 0px 8px 30px rgba(212, 20, 67, 0.1);
+
+  @media screen and (max-width: 1199px) {
+    width: 90%;
+    max-width: 600px;
+    padding: 40px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    //width: 100%;
+
+    min-width: 521px;
+    min-height: 581px;
+    padding: 40px;
+  }
+}
+
+.section-about__paragraph {
+  @include secondary-font(18px, 400, 21px);
+  text-align: center;
+  color: $accent-secondary-color;
+  margin-bottom: 15px;
+}
+
+.section-about__icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background: $accent-secondary-color;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  padding: 0px;
+  fill: $main-text-color;
+  cursor: pointer;
+  transition: background-color 250ms $cubic-timing;
+
+  &:hover,
+  &:focus {
+    background: $accent-main-color;
+  }
+}
+.section-about__close:hover .section-about__close,
+.section-about__close:focus .section-about__close {
+  background-color: $accent-bg-color-first;
+  transition: background-color 250ms $cubic-timing;
+}

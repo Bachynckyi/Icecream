@@ -1,0 +1,13 @@
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+
+  &.modal-open {
+    overflow: hidden;
+    
+    @media screen and (min-width: 1200px) {
+      padding-right: 17px;
+    }
+  }
+}
